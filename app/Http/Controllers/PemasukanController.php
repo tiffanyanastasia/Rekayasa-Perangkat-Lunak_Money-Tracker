@@ -20,7 +20,7 @@ class PemasukanController extends Controller
         $jenis = 'Pemasukan';
         $route = 'pemasukan';
         $kategori = Kategori::where('Jenis', 'Pemasukan')->get();
-        return(view('input', compact('rekening', 'jenis', 'route', 'kategori')));
+        return(view('tambahpemasukan', compact('rekening', 'jenis', 'route', 'kategori')));
     }
 
     /**

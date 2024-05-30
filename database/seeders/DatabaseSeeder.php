@@ -41,7 +41,7 @@ class DatabaseSeeder extends Seeder
             'Jenis' => 'Pengeluaran'
         ]);
         Kategori::create([
-            'NamaKategori' => 'Parent',
+            'NamaKategori' => 'Family',
             'Jenis' => 'Pemasukan'
         ]);
         Kategori::create([

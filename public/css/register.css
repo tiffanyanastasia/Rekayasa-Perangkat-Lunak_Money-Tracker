@@ -1,0 +1,101 @@
+@font-face {
+    font-family: manatee;
+    src: url(font/Sono-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: lemon;
+    src: url(font/lemon.ttf);
+}
+
+body{
+    background: #0C2D57;
+}
+
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    height: 100vh;
+}
+
+.form-signup{
+    margin: 0 auto;
+    width: 500px;
+    height: 630px;
+    background-color: #FFFFEA;
+    padding: 15px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.form-group {
+    text-align: left; /* Mengatur teks ke kiri */
+    margin-bottom: 10px;
+}
+
+.form-signup h1 {
+    text-align: center;
+    margin-bottom: 60px; 
+    margin-top: 40px;
+    font-family: 'Papyrus';
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.form-signup p{
+    text-align: center;
+}
+.form-group p {
+    text-align: left;
+    margin-bottom: 5px; 
+    font-family: manatee;
+    font-size: 15px;
+}
+.form-signup input[type="submit"] {
+    margin-top: 20px; 
+    margin-bottom: 10px;
+    font-family: manatee;
+    border-radius: 30px;
+    background-color: #0D9276; 
+    border: 1px solid black; 
+    padding: 5px 0; 
+    width: 30%; 
+    font-size: 15px;
+}
+.form-signup input[type="text"],
+.form-signup input[type="email"],
+.form-signup input[type="password"] {
+    width: 100%; 
+    border-radius: 30px;
+    background-color: #E4D9CA; 
+    border: 1px solid black; 
+    padding: 8px; 
+    box-sizing: border-box; 
+    height: 30px;
+    font-family: manatee;
+}
+ 
+.submit-login input[type="button"] {
+    margin: 0 auto; 
+    font-family: manatee;
+    border-radius: 30px;
+    background-color: white; 
+    border: 1px solid black; 
+    padding: 10px 10; 
+    width: 50%; 
+    font-size: 15px;
+    margin-left: 47px;
+}
+
+.submit-login {
+    margin-bottom: 9px;
+}
+
+.submit-login p {
+    font-family: manatee;
+    margin-top: 20px;
+}

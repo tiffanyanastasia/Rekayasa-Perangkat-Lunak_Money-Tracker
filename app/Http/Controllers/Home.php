@@ -16,8 +16,8 @@ class Home extends Controller
         $jumlahpengeluaran = DB::table('pengeluarans')
         ->where('user', auth()->user()->id)
         ->sum('jumlah');
-        $saldo = DB::table('rekenings')->sum('saldo');
-        $total = $saldo - $jumlahpengeluaran;
+        $saldo = DB::table('rekenings')->where('user', auth()->user()->id)->sum('saldo');
+        $total = $saldo;
         $pemasukan = Pemasukan::where('user', auth()->user()->id)->get();
         $pengeluaran = Pengeluaran::where('user', auth()->user()->id)->get();
         return(view('home',compact(['jumlahpemasukan', 'jumlahpengeluaran', 'total', 'pengeluaran', 'pemasukan'])));

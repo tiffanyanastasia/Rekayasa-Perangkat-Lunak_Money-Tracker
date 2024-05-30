@@ -2,35 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MOney | Home</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Include your navbar layout -->
-    @include('layouts.nav')
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Budgeteer</title>
+    <link rel="stylesheet" href="bootstrap-5.3.3-dist/css/bootstrap.min.css">
+    <link href="{{ asset('/css/register.css') }}" rel="stylesheet">
 </head>
 <body>
-    <h1>Register</h1>
-    <form action="/register" method="post">
-        @csrf
-        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" placeholder="Username"> <br>
-        @error('name') 
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-        @enderror
-        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email"> <br>
-        @error('email') 
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-        @enderror
-        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password"> <br>
-        @error('password') 
-        <div class="invalid-feedback">
-            {{ $message }}
-        </div>
-        @enderror
-        <input type="submit" name="submit" value="Save">
-    </form>
+    <div class="container">
+        <form class="form-signup" action="/register" method="post">
+            @csrf
+            <h1>WELCOME to BUDGETEER</h1>
+            <div class="form-group" >
+                <p>Username</p>
+                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" placeholder="">
+                @error('name')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
+            </div>
+            <div class="form-group">
+                <p>Email</p>
+                <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="">
+            </div>
+            @error('email')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+            <div class="form-group">
+                <p>Password</p>
+                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="">
+            </div>
+            @error('password')
+            <div class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+            <input type="submit" class="btn btn-success btn-block" name="submit" value="Sign Up">
+            <div class="submit-login">
+                <p>Already have an account?</p>
+                <input type="button" class="btn btn-outline-success btn-block" name="Login" value="Log in" onclick="window.location.href='/login'">
+            </div>
+        </form>
+    </div>
+
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

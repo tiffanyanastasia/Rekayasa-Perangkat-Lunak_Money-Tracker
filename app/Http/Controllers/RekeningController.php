@@ -53,7 +53,12 @@ class RekeningController extends Controller
     public function edit($id)
     {
         $rekening = Rekening::find($id);
-        return view('editrekening', compact('rekening'));
+        if($rekening){
+            return response()->json($id);
+        }
+        else{
+            return response()->json(['error' => 'Wallet not found'], 404);
+        }
     }
 
     /**

@@ -1,0 +1,394 @@
+@font-face {
+    font-family: manatee;
+    src: url(font/Sono-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: lemon;
+    src: url(font/lemon.ttf);
+}
+
+@font-face {
+    font-family: stitch;
+    src: url(font/stitches.ttf);
+}
+
+@font-face {
+    font-family: gull;
+    src: url(font/gull.ttf);
+}
+
+@font-face {
+    font-family: neue;
+    src: url(font/neue.ttf);
+}
+
+body {
+    background-color: #0C2D57;
+}
+
+.font h2{
+    font-family: stitch; 
+    font-size: 60px;
+}
+
+.font p{
+    font-family: manatee;
+    font-size: 20px;
+}
+
+.card{
+    border-radius: 30px;
+    overflow: hidden;
+    margin-top: 40px;
+}
+
+.card-header{
+    background-color: #FC7D36;
+    padding: 10px;
+}
+
+.card-header-tabs{
+    justify-content: left;
+    align-items: left;
+}
+
+.card-header {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+}
+
+.nav-link{
+    color: #FFFF !important ;
+    font-weight: 0;
+    background-color: #0C2D57 !important;
+    padding: 5px 20px;
+    border-width: 2px !important;
+    font-family: lemon;
+    border-color: #FFB0B0;
+    margin-right: 20px;
+    margin-top: 30px;
+    margin-left: 20px;
+    font-size: 20px;
+}
+
+.nav-tabs{
+    border-color: #FFFF;
+    width: 100%;
+}
+
+.nav-link:active,
+.nav-link:hover {
+    background-color: #FFF6E9 !important;
+    color: #000 !important;
+}
+
+.card-body{
+    background-color: #FFF6E9;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    min-width: 200px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+}
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+}
+.edit-btn-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button {
+        margin: 0;
+    }
+}
+
+.btn-danger{
+    background-color: #0D9276;
+    box-shadow: black;
+    border-radius: 30px;
+    border: 1px solid black; 
+    
+    font-size: 15px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.form-group{
+    font-family: manatee;
+}
+
+.input-group input[type="month"]{
+    font-family: manatee;
+}
+
+.custom-card{
+    background-color: #FFF6E9;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    font-family: manatee;
+    margin-bottom: 20px;
+}
+
+.custom-header{
+    background-color: #4262A0;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.table-active{
+    border-radius: 30px;
+    height: 60px;
+    background-color: #FFF6E9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card.table-active {
+    display: flex;
+    width: 90%;
+    margin-bottom: 5px;
+}
+
+.card.table-active .card-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card.table-active .col-3 {
+    flex-basis: 25%;
+}
+
+.card.table-active .col-9 {
+    flex-basis: 75%;
+}
+
+
+/* Analytic Page */
+
+  .chartMenu {
+    width: 100vw;
+    height: 40px;
+    background: #1A1A1A;
+    color: rgba(54, 162, 235, 1);
+  }
+  .chartMenu p {
+    padding: 10px;
+    font-size: 20px;
+  }
+  .chartCard {
+    width: 100vw;
+    height: calc(100vh - 40px);
+    background: rgba(54, 162, 235, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chartBox {
+    width: 400px;
+    padding: 20px;
+    border-radius: 20px;
+    border: solid 3px rgba(54, 162, 235, 1);
+    background: white;
+  }
+
+.chart {
+    width: 400px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 130px;
+    margin-bottom: 20px;
+}
+
+.income-footer{
+    background-color: #4262A0;
+    height: 15px;
+}
+
+.income-header{
+    height: 50px;
+    font-family: gull;
+    font-size: 20px;
+    color: #FFF6E9 ;
+    background-color: #4262A0;
+}
+
+.income-footer{
+    height: 50px;
+    color: #FFF6E9 ;
+    background-color: #4262A0;
+}
+
+.content-wrapper{
+    width: 500px;
+    margin-left: 170px;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart{
+    background-color: #FFF6E9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+    align-items: center;
+    width: 390px;
+    
+}
+
+.income-analytic{
+    width: 320px;
+    background: #FFF6E9;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    height: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.income-dashboard img {
+    width: 80px; 
+    height: 50px; 
+  }
+
+/* Wallet Page */
+
+.card-wallet {
+    margin-top: 20px;
+}
+
+/* Gaya untuk judul header wallet */
+.header-wallet {
+    background-color: #4262A0;
+    padding: 10px;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Gaya untuk modal */
+.modal-content {
+    background-color: #FFF6E9;
+    border-radius: 40px;
+}
+
+/* Gaya untuk judul modal */
+.modal-title {
+    color: #343a40;
+}
+
+/* Gaya untuk input modal */
+.modal-body input[type="text"],
+.modal-body input[type="number"],
+.modal-body select {
+    width: 100%; 
+    border-radius: 30px;
+    background-color: #E4D9CA; 
+    border: 1px solid black; 
+    padding: 8px; 
+    box-sizing: border-box; 
+    height: 30px;
+    font-family: manatee;
+    font-size: 10px;
+}
+
+/* Gaya untuk footer modal */
+.modal-footer {
+    justify-content: space-between;
+    border-top: none;
+}
+
+/* Gaya untuk tombol Save Changes */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+/* Gaya untuk judul card */
+.header-body-money-wallet {
+    background-color: bisque;
+    padding: 10px;
+}
+
+/* Gaya untuk input nama rekening */
+.header-body-money-wallet input[type="text"] {
+    border: none;
+    font-size: 10px;
+
+}
+
+/* Gaya untuk input total wallet */
+.body-body-money-wallet input[type="number"] {
+    width: 100%; 
+    border-radius: 30px;
+    background-color: #FFF6E9; 
+    border: 1px solid black; 
+    padding: 8px; 
+    box-sizing: border-box; 
+    height: 30px;
+    font-family: manatee;
+}
+
+.wallet-wallet{
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.6);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    width: 400px;
+    height: 200px;
+}
+
+.body-money-wallet{
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF6E9;
+}
+
+.header-wallet .btn-danger p{
+    font-family: gull;
+    margin-top: 10px;
+}
+
+.body-body-money-wallet p{
+    font-family: manatee;
+}
+
+.header-body-money-wallet input[type="text"] {
+    width: 100%; 
+    border-radius: 30px;
+    background-color: #FFF6E9; 
+    border: 1px solid black; 
+    padding: 8px; 
+    box-sizing: border-box; 
+    height: 30px;
+    font-family: manatee;
+}
+
+.modal-body .form-label{
+    font-family: manatee;
+}
+
+.modal-header h5{
+    font-family: manatee;
+}
