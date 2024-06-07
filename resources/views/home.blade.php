@@ -12,6 +12,11 @@
             document.getElementById('pemasukanSection').style.display = selectedValue === 'Pemasukan' ? 'block' : 'none';
             document.getElementById('pengeluaranSection').style.display = selectedValue === 'Pengeluaran' ? 'block' : 'none';
         }
+
+        window.onload = function() {
+            document.getElementById('input').value = 'Pemasukan';
+            showSection();
+        };
     </script>
 </head>
 
@@ -27,78 +32,79 @@
                 <div class="tab-content p-4">
                     <div id="budgeteer" class="active tab-pane fade in show">
                         <div class="font">
-                        <h2>Delve into Wealth Wonders with BUDGETEER</h2>
+                            <h2>Delve into Wealth Wonders with BUDGETEER</h2>
                         </div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <div class="col-sm-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="col-sm-4">
+                                </div>
+                                <div class="form row">
+                                    <div class="form-group col-md-6">
+                                        <label for="inputTotal">Total</label>
+                                        <input type="text" class="form-control" id="inputTotalFormatted" value="{{ number_format($total, 2, ',', '.') }}" readonly>
                                     </div>
-                                    <div class="form row">
-                                        <div class="form-group col-md-6">
-                                            <label for="inputTotal">Total</label>
-                                            <input type="number" class="form-control" id="inputTotal"  value= {{ $total }} readonly step="1000">
-                                        </div>
-                                        <div class="form-group col-md-4">
-                                            <label for="inputIncome">Income</label>
-                                            <input type="number" class="form-control" id="inputIncome" value={{ $jumlahpengeluaran }} readonly >
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label for="inputExpense">Expense</label>
-                                            <input type="number" class="form-control" id="inputExpense" value={{ $jumlahpemasukan }} readonly>
-                                        </div>
-                                        <div class="form-group col-md-12 mt-3">
-                                            <button class="btn btn-danger" onclick="location.href='/pemasukan'">Add Income</button>
-                                            <button class="btn btn-danger" onclick="location.href='/pengeluaran'">Add Expense</button>
-                                        </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="inputIncome">Income</label>
+                                        <input type="text" class="form-control" id="inputIncomeFormatted" value="{{ number_format($jumlahpemasukan, 2, ',', '.') }}" readonly>
                                     </div>
+                                    <div class="form-group col-md-2">
+                                        <label for="inputExpense">Expense</label>
+                                        <input type="text" class="form-control" id="inputExpenseFormatted" value="{{ number_format($jumlahpengeluaran, 2, ',', '.') }}" readonly>
+                                    </div>
+                                    <div class="form-group col-md-12 mt-3">
+                                        <button class="btn btn-danger" onclick="location.href='/pemasukan'">Add Income</button>
+                                        <button class="btn btn-danger" onclick="location.href='/pengeluaran'">Add Expense</button>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header custom-header">
+                                <div class="mt-3">
+                                    <select name="input" id="input" onchange="showSection()" class="form-select">
+                                        <option value="Pemasukan">Pemasukan</option>
+                                        <option value="Pengeluaran">Pengeluaran</option>
+                                    </select>
                                 </div>
                             </div>
-                            <div class="card">
-                                <div class="card-header custom-header">
-                                    <div class="mt-3">
-                                        <select name="input" id="input" onchange="showSection()" class="form-select">
-                                            <option value="Pemasukan">Pemasukan</option>
-                                            <option value="Pengeluaran">Pengeluaran</option>
-                                        </select>
-                                    </div>
-                            
+                            <div class="card-body">
+                                <div id="pemasukanSection" class="mt-4">
+                                    @foreach ($pemasukan as $item)
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ optional($item->kategori)->NamaKategori ?? 'Kategori Tidak Ditemukan' }}</h5>
+                                                <p class="card-text">Jumlah: Rp. {{ number_format($item->jumlah, 2, ',', '.') }}</p>
+                                                <p class="card-text">{{ $item->created_at }}</p>
+                                                <button onclick="location.href='/pemasukan/{{ $item->id }}/edit'" type="button" class="btn btn-warning">Edit</button>
+                                                <form action="/pemasukan/{{ $item->id }}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <div class="card-body">
-                                    <div id="pemasukanSection" class="mt-4" style="display: none;">
-                                        @foreach ($pemasukan as $item)
-                                            <div class="card mb-3">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{ optional($item->kategori)->NamaKategori ?? 'Kategori Tidak Ditemukan' }}</h5>
-                                                    <p class="card-text">Jumlah: Rp. {{ $item->jumlah }}</p>
-                                                    <button onclick="location.href='/pemasukan/{{ $item->id }}/edit'" type="button" class="btn btn-warning">Edit</button>
-                                                    <form action="/pemasukan/{{ $item->id }}" method="POST" class="d-inline">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                    </form>
-                                                </div>
+                                <div id="pengeluaranSection" class="mt-4" style="display: none;">
+                                    @foreach ($pengeluaran as $item)
+                                        <div class="card mb-3">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{ optional($item->kategori)->NamaKategori ?? 'Kategori Tidak Ditemukan' }}</h5>
+                                                <p class="card-text">Jumlah: Rp. {{ number_format($item->jumlah, 2, ',', '.') }}</p>
+                                                <p class="card-text">{{ $item->created_at }}</p>
+                                                <button onclick="location.href='/pengeluaran/{{ $item->id }}/edit'" type="button" class="btn btn-warning">Edit</button>
+                                                <form action="/pengeluaran/{{ $item->id }}" method="POST" class="d-inline">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
                                             </div>
-                                        @endforeach
-                                    </div>
-                            
-                                    <div id="pengeluaranSection" class="mt-4" style="display: none;">
-                                        @foreach ($pengeluaran as $item)
-                                            <div class="card mb-3">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">{{ optional($item->kategori)->NamaKategori ?? 'Kategori Tidak Ditemukan' }}</h5>
-                                                    <p class="card-text">Jumlah: Rp. {{ $item->jumlah }}</p>
-                                                    <button onclick="location.href='/pengeluaran/{{ $item->id }}/edit'" type="button" class="btn btn-warning">Edit</button>
-                                                    <form action="/pengeluaran/{{ $item->id }}" method="POST" class="d-inline">
-                                                        @csrf
-                                                        @method('DELETE')
-                                                        <button type="submit" class="btn btn-danger">Delete</button>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        @endforeach
-                                    </div>
+                                        </div>
+                                    @endforeach
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>

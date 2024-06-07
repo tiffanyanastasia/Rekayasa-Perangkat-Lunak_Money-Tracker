@@ -8,6 +8,16 @@
     <link href="{{ asset('/css/page.css') }}" rel="stylesheet">
 </head>
 
+<style>
+    .row-fix {
+        display: flex;
+        align-items: center;
+    }
+    .income-analytic-fix {
+        width: 350px;
+    }
+</style>
+
 <body>
     <div class="container py-5">
         <div class="card text-center">
@@ -31,8 +41,8 @@
                                         </div>
                                     </div>
                                     <div class="card col-6 chart">
-                                        <div class="card income-analytic">
-                                            <div class="row">
+                                        <div class="card income-analytic income-analytic-fix">
+                                            <div class="row row-fix">
                                                 <div class="col-sm income-dashboard">
                                                     <img src="photo/Family.png" class="img-fluid" alt="...">
                                                 </div>
@@ -40,12 +50,12 @@
                                                     <input type="number" id="percentage" name="percentage" min="0" max="100" step="0.01"  placeholder="{{ $total2->firstWhere('Kategori_id', 5) ? number_format($total2->firstWhere('Kategori_id', 5)->percentage, 2) : '0' }}"  readonly>
                                                 </div>
                                                 <div class="col-sm income-dashboard">
-                                                    <input type="number" id="incomemoney" name="incomemoney" min="0" max="100" step="0.01" placeholder="{{ $total2->firstwhere('Kategori_id', 5)->total_kategori ?? '0' }}" readonly>
+                                                    <input type="number" id="incomemoney" name="incomemoney" min="0" max="100" step="0.01" placeholder="{{ number_format($total2->firstwhere('Kategori_id', 5)->total_kategori ?? '0', 2, ',', '.') }}" readonly>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card income-analytic">
-                                            <div class="row">
+                                        <div class="card income-analytic income-analytic-fix">
+                                            <div class="row row-fix">
                                                 <div class="col-sm income-dashboard">
                                                     <img src="photo/wage.png" class="img-fluid" alt="...">
                                                 </div>
@@ -53,12 +63,12 @@
                                                     <input type="number" id="percentage" name="percentage" min="0" max="100" step="0.01" placeholder="{{ $total2->firstWhere('Kategori_id', 6) ? number_format($total2->firstWhere('Kategori_id', 6)->percentage, 2) : '0' }}"  readonly>
                                                 </div>
                                                 <div class="col-sm income-dashboard">
-                                                    <input type="number" id="incomemoney" name="incomemoney" min="0" max="100" step="0.01" placeholder="{{ $total2->firstwhere('Kategori_id', 6)->total_kategori ?? '0' }}" readonly>
+                                                    <input type="number" id="incomemoney" name="incomemoney" min="0" max="100" step="0.01" placeholder="{{ number_format($total2->firstwhere('Kategori_id', 6)->total_kategori ?? '0', 2, ',', '.') }}" readonly>
                                                 </div>
                                             </div>
                                         </div>  
-                                        <div class="card income-analytic">
-                                            <div class="row">
+                                        <div class="card income-analytic income-analytic-fix">
+                                            <div class="row row-fix">
                                                 <div class="col-sm income-dashboard">
                                                     <img src="photo/bonus.png" class="img-fluid" alt="...">
                                                 </div>
@@ -66,12 +76,12 @@
                                                     <input type="number" id="percentage" name="percentage" min="0" max="100" step="0.01" placeholder="{{ $total2->firstWhere('Kategori_id', 7) ? number_format($total2->firstWhere('Kategori_id', 7)->percentage, 2) : '0' }}"  readonly>
                                                 </div>
                                                 <div class="col-sm income-dashboard">
-                                                    <input type="number" id="incomemoney" name="incomemoney" min="0" max="100" step="0.01" placeholder="{{ $total2->firstwhere('Kategori_id', 7)->total_kategori ?? '0' }}" readonly>
+                                                    <input type="number" id="incomemoney" name="incomemoney" min="0" max="100" step="0.01" placeholder="{{ number_format($total2->firstwhere('Kategori_id', 7)->total_kategori ?? '0', 2, ',', '.') }}" readonly>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card income-analytic">
-                                            <div class="row">
+                                        <div class="card income-analytic income-analytic-fix">
+                                            <div class="row row-fix">
                                                 <div class="col-sm income-dashboard">
                                                     <img src="photo/Parttime.png" class="img-fluid" alt="...">
                                                 </div>
@@ -79,7 +89,7 @@
                                                     <input type="number" id="percentage" name="percentage" min="0" max="100" step="0.01" placeholder="{{ $total2->firstWhere('Kategori_id', 8) ? number_format($total2->firstWhere('Kategori_id', 8)->percentage, 2) : '0' }}"  readonly>
                                                 </div>
                                                 <div class="col-sm income-dashboard">
-                                                    <input type="number" id="incomemoney" name="incomemoney" min="0" max="100" step="0.01" placeholder="{{ $total2->firstwhere('Kategori_id', 8)->total_kategori ?? '0' }}" readonly>
+                                                    <input type="number" id="incomemoney" name="incomemoney" min="0" max="100" step="0.01" placeholder="{{ number_format($total2->firstwhere('Kategori_id', 8)->total_kategori ?? '0', 2, ',', '.') }}" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -100,8 +110,8 @@
                                         </div>
                                     </div>
                                     <div class="card col-6 chart">
-                                        <div class="card income-analytic">
-                                            <div class="row">
+                                        <div class="card income-analytic income-analytic-fix">
+                                            <div class="row row-fix">
                                                 <div class="col-sm income-dashboard">
                                                     <img src="photo/food.png" class="img-fluid" alt="...">
                                                 </div>
@@ -109,12 +119,12 @@
                                                     <input type="number" id="expensepercentage" name="expensepercentage" min="0" max="100" step="0.01" placeholder="{{ $total->firstWhere('Kategori_id', 1) ? number_format($total->firstWhere('Kategori_id', 1)->percentage, 2) : '0' }}" readonly>
                                                 </div>
                                                 <div class="col-sm income-dashboard">
-                                                    <input type="number" id="expensesmoney" name="expensesmoney" min="0" max="100" step="0.01" placeholder="{{ $total->firstwhere('Kategori_id', 1)->total_kategori ?? '0'}}" readonly>
+                                                    <input type="number" id="expensesmoney" name="expensesmoney" min="0" max="100" step="0.01" placeholder="{{ number_format($total->firstwhere('Kategori_id', 1)->total_kategori ?? '0', 2, ',', '.') }}" readonly>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card income-analytic">
-                                            <div class="row">
+                                        <div class="card income-analytic income-analytic-fix">
+                                            <div class="row row-fix">
                                                 <div class="col-sm income-dashboard">
                                                     <img src="photo/edu.png" class="img-fluid" alt="...">
                                                 </div>
@@ -122,12 +132,12 @@
                                                     <input type="number" id="expensepercentage" name="expensepercentage" min="0" max="100" step="0.01" placeholder="{{ $total->firstWhere('Kategori_id', 2) ? number_format($total->firstWhere('Kategori_id', 2)->percentage, 2) : '0' }}" readonly>
                                                 </div>
                                                 <div class="col-sm income-dashboard">
-                                                    <input type="number" id="expenseincomemoney" name="expensemoney" min="0" max="100" step="0.01" placeholder="{{ $total->firstwhere('Kategori_id', 2)->total_kategori ?? '0' }}" readonly>
+                                                    <input type="number" id="expenseincomemoney" name="expensemoney" min="0" max="100" step="0.01" placeholder="{{ number_format($total->firstwhere('Kategori_id', 2)->total_kategori ?? '0', 2, ',', '.') }}" readonly>
                                                 </div>
                                             </div>
                                         </div>  
-                                        <div class="card income-analytic">
-                                            <div class="row">
+                                        <div class="card income-analytic-fix income-analytic ">
+                                            <div class="row row-fix">
                                                 <div class="col-sm income-dashboard">
                                                     <img src="photo/traffic.png" class="img-fluid" alt="...">
                                                 </div>
@@ -135,12 +145,12 @@
                                                     <input type="number" id="expensepercentage" name="expensepercentage" min="0" max="100" step="0.01" placeholder="{{ $total->firstWhere('Kategori_id', 3) ? number_format($total->firstWhere('Kategori_id', 3)->percentage, 2) : '0' }}" readonly>
                                                 </div>
                                                 <div class="col-sm income-dashboard">
-                                                    <input type="number" id="expensemoney" name="expensemoney" min="0" max="100" step="0.01"placeholder="{{ $total->firstwhere('Kategori_id', 3)->total_kategori ?? '0'}}" readonly>
+                                                    <input type="number" id="expensemoney" name="expensemoney" min="0" max="100" step="0.01"placeholder="{{ number_format($total->firstwhere('Kategori_id', 3)->total_kategori ?? '0', 2, ',', '.') }}" readonly>
                                                 </div>
                                             </div>
                                         </div>  
-                                        <div class="card income-analytic">
-                                            <div class="row">
+                                        <div class="card income-analytic-fix income-analytic ">
+                                            <div class="row row-fix">
                                                 <div class="col-sm income-dashboard">
                                                     <img src="photo/daily.png" class="img-fluid" alt="...">
                                                 </div>
@@ -148,7 +158,7 @@
                                                     <input type="number" id="expensepercentage" name="expensepercentage" min="0" max="100" step="0.01" placeholder="{{ $total->firstWhere('Kategori_id', 4) ? number_format($total->firstWhere('Kategori_id', 4)->percentage, 2) : '0' }}" readonly>
                                                 </div>
                                                 <div class="col-sm income-dashboard">
-                                                    <input type="number" id="expensemoney" name="expensemoney" min="0" max="100" step="0.01" placeholder="{{ $total->firstwhere('Kategori_id', 4)->total_kategori ?? '0'}}" readonly>
+                                                    <input type="number" id="expensemoney" name="expensemoney" min="0" max="100" step="0.01" placeholder="{{ number_format($total->firstwhere('Kategori_id', 4)->total_kategori ?? '0', 2, ',', '.') }}" readonly>
                                                 </div>
                                             </div>
                                         </div>

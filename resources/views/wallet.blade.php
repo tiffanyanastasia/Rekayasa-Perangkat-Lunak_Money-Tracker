@@ -8,6 +8,11 @@
     <link href="{{ asset('/css/page.css') }}" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+<style>
+    .grid-fix {
+        grid-template-columns: auto auto auto;
+    }
+</style>
 <body>
     <div class="container py-5">
         <div class="card text-center">
@@ -23,7 +28,7 @@
                             <div class="card-header header-wallet">
                                 <!-- Button trigger modal -->
                                 <button type="button" class="btn btn-danger mt-2" data-bs-toggle="modal" data-bs-target="#addwallet">
-                                    <p>+ Add Wallet</p>
+                                    <p style="margin: 0;">+ Add Wallet</p>
                                 </button>
                                 <!-- Add Wallet Modal -->
                                 <div class="modal fade" id="addwallet" tabindex="-1" aria-labelledby="addwalletmodal" aria-hidden="true">
@@ -98,35 +103,39 @@
                                     </div>
                                 </div>
                             </div>
-                            @foreach ($rekening as $r)
-                            <div class="card-body body-money-wallet">
-                                <div class="card wallet-wallet">
-                                    <div class="card-header header-body-money-wallet">
-                                        <input type="text" class="form-control" id="rekeningcategory" name="nama_rekening" placeholder="{{ $r->nama_rekening }}" readonly>
-                                    </div>
-                                    <div class="card-body body-body-money-wallet">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <p>Total Tabungan</p>
+                            
+                                @foreach ($rekening as $r)
+                                
+                                    <div class="card-body body-money-wallet">
+                                        <div class="card wallet-wallet">
+                                            <div class="card-header header-body-money-wallet">
+                                                <input type="text" class="form-control" id="rekeningcategory" name="nama_rekening" placeholder="{{ $r->nama_rekening }}" readonly>
                                             </div>
-                                            <div class="col-6">
-                                                <input type="number" class="form-control" id="totalwallet" name="saldo" placeholder="{{ $r->saldo }}" readonly>
-                                            </div>
-                                            <div class="mt-2 edit-btn-div">
-                                                <button style="width:100px; background-color:blue;" type="button" class="btn btn-danger edit-button" onclick="toModal('{{ $r->nama_rekening }}', '{{ $r->saldo }}', '{{ $r->id }}')" data-bs-toggle="modal" data-bs-target="#editwallet">
-                                                    <p style="margin: 0;">Edit</p>
-                                                </button>
-                                                <form action="{{ route('wallet.destroy', $r->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this rekening?');" class="d-inline">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button style="width:100px; background-color: red;" type="submit" class="btn btn-danger">Delete</button>
-                                                </form>
+                                            <div class="card-body body-body-money-wallet">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <p>Total Tabungan Rp.</p>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <input type="number" class="form-control" id="totalwallet" name="saldo" placeholder="{{ number_format($r->saldo, 2, ',', '.') }}" readonly>
+                                                    </div>
+                                                    <div class="mt-2 edit-btn-div">
+                                                        <button style="width:100px; background-color:blue;" type="button" class="btn btn-danger edit-button" onclick="toModal('{{ $r->nama_rekening }}', '{{ $r->saldo }}', '{{ $r->id }}')" data-bs-toggle="modal" data-bs-target="#editwallet">
+                                                            <p style="margin: 0;">Edit</p>
+                                                        </button>
+                                                        <form action="{{ route('wallet.destroy', $r->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this rekening?');" class="d-inline">
+                                                            @csrf
+                                                            @method('DELETE')
+                                                            <button style="width:100px; background-color: red;" type="submit" class="btn btn-danger">Delete</button>
+                                                        </form>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            @endforeach
+                                
+                                @endforeach
+                            
                         </div> <!-- end card-wallet -->
                     </div> <!-- end wallet tab-pane -->
                 </div> <!-- end tab-content -->
