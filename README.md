@@ -6,5 +6,31 @@ Manajemen keuangan adalah proses strategis dalam mengelola sumber daya keuangan 
 ## Use Case Diagram
 ![image](https://github.com/user-attachments/assets/21880329-6674-4acf-823f-c830a53ee9fe)
 
+## Activity Diagram
+![image](https://github.com/user-attachments/assets/a19c1227-91b8-41b3-968d-a0e467d5cfa8)
+
+## Sequence Diagram
+![image](https://github.com/user-attachments/assets/284684f8-0fcf-4c63-a355-10a4f9a8f28f)
+
+## Hompeage
+![image](https://github.com/user-attachments/assets/f7d6229b-b5ab-445f-bf6a-538662c9a874)
+
+## Add Income View
+![image](https://github.com/user-attachments/assets/b8fd4ba3-1678-4030-b6c7-15eb6abe6f26)
+
+## Add Expense View
+![image](https://github.com/user-attachments/assets/c32f2314-f1c8-4b51-8132-30edc529284c)
+
+## Role
+
+| Nama                        | Role                                              |
+|-----------------------------|---------------------------------------------------|
+| Nabiel Muaafii Rahman       | Backend Developer dan Integrasi Backend Frontend |
+| Tiffany Anastasia Jocelyn  | Front end developer                               |
+| Aszriel Teddy Muhammad      | UI/UX Design                                      |
+
+
+
+
 
 
